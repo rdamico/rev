@@ -1,0 +1,39 @@
+<div class="mx-auto px-8 py-6 rounded shadow bg-white">
+  <div class="flex flex-col space-y-4">
+    <div class="flex items-center justify-between bg-gray-100 py-3 px-6 rounded">
+      <span class="font-bold">
+        Event Theme
+      </span>
+      <span>
+        <%= @event.event_type.name %>
+      </span>
+    </div>
+
+    <div class="flex items-center justify-between bg-gray-100 py-3 px-6 rounded">
+      <span class="font-bold">
+        Customer
+      </span>
+      <span>
+        <%= @event.customer.name %>
+      </span>
+    </div>
+
+    <div class="flex items-center justify-between bg-gray-100 py-3 px-6 rounded">
+      <span class="font-bold">
+        Start
+      </span>
+      <span>
+        <%= @event.start.strftime("%b %e, %l:%M %p") %>
+      </span>
+    </div>
+
+    <div class="flex items-center justify-between bg-gray-100 py-3 px-6 rounded">
+      <span class="font-bold">
+        Finish
+      </span>
+      <span>
+        <%= @event.finish.strftime("%b %e, %l:%M %p") %>
+      </span>
+    </div>
+  </div>
+</div>
