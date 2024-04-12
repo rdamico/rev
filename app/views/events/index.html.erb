@@ -1,11 +1,11 @@
 <div class="px-8 py-6 rounded shadow bg-white">
-  <table class="w-full leading-10">
+  <table class="w-full leading-10 table table-hover">
     <thead class="text-left border-b">
       <tr class="pb-1">
-        <th>Customer</th>
-        <th>Event Theme</th>
-        <th>Event Time</th>
-        <th>&nbsp;</th>
+        <th scope="col">Customer</th>
+        <th scope="col">Event Theme</th>
+        <th scope="col">Event Time</th>
+        <th scope="col" colspan="3">&nbsp;</th>
       </tr>
     </thead>
     <tbody>
@@ -14,14 +14,14 @@
           <td><%= event.customer.name %></td>
           <td><%= event.event_type.name %></td>
           <td><%= event.start.strftime("%b %e, %l:%M %p") %> - <%= event.finish.strftime("%b %e, %l:%M %p") %></td>
-          <td class="text-right">
-            <%= link_to "Edit", edit_event_path(event), class: "text-blue-500 hover:underline" %> | <%= link_to "View", event_path(event), class: "text-green-500 hover:underline" %>
-          </td>
+          <td><%= link_to "Edit", edit_event_path(event), class: "btn btn-primary" %></td>
+          <td><%= link_to "View", event_path(event), class: "btn btn-success" %></td>
+          <td><%= link_to 'Delete', event_path(event), data: {confirm: 'Are you sure?'}, method: :delete, class: "btn btn-danger" %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
   <div class="flex justify-center mt-4">
-    <%= link_to "Create Event", new_event_path, class: "inline-block bg-blue-500 hover:bg-blue-600 text-white rounded shadow cursor-pointer font-bold px-3 py-2" %>
+    <%= link_to "Create Event", new_event_path, class: "btn btn-primary" %>
   </div>
 </div>

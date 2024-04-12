@@ -13,6 +13,8 @@ gem 'name_of_person', '~> 1.1'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
+gem 'bootstrap', '~> 5.2', '>= 5.2.3'
+gem 'jquery-rails'
 
 gem 'bootsnap', '>= 1.4.4', require: false
 
