@@ -1,23 +1,28 @@
 <div class="px-8 py-6 rounded shadow bg-white">
-  <table class="w-full leading-10 table table-hover">
-    <thead class="text-left border-b">
-      <tr class="pb-1">
-        <th scope="col">Customer</th>
-        <th scope="col">Event Theme</th>
-        <th scope="col">Event Time</th>
-        <th scope="col" colspan="3">&nbsp;</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @events.each do |event| %>
-        <tr>
-          <td><%= event.customer.name %></td>
-          <td><%= event.event_type.name %></td>
-          <td><%= event.start.strftime("%b %e, %l:%M %p") %> - <%= event.finish.strftime("%b %e, %l:%M %p") %></td>
-          <td><%= link_to "Edit", edit_event_path(event), class: "btn btn-primary" %></td>
-          <td><%= link_to "View", event_path(event), class: "btn btn-success" %></td>
-          <td><%= link_to 'Delete', event_path(event), data: {confirm: 'Are you sure?'}, method: :delete, class: "btn btn-danger" %></td>
+  <%= render "search_form" %>
+  <% if @events.empty? %>
+    Your search did not find any results
+  <% else %>
+    <table class="w-full leading-10 table table-hover">
+      <thead class="text-left border-b">
+        <tr class="pb-1">
+          <th scope="col">Customer</th>
+          <th scope="col">Event Theme</th>
+          <th scope="col">Event Time</th>
+          <th scope="col" colspan="3">&nbsp;</th>
         </tr>
+      </thead>
+      <tbody>
+        <% @events.each do |event| %>
+          <tr>
+            <td><%= event.customer.name %></td>
+            <td><%= event.event_type.name %></td>
+            <td><%= event.start.strftime("%b %e, %l:%M %p") %> - <%= event.finish.strftime("%b %e, %l:%M %p") %></td>
+            <td><%= link_to "Edit", edit_event_path(event), class: "btn btn-primary" %></td>
+            <td><%= link_to "View", event_path(event), class: "btn btn-success" %></td>
+            <td><%= link_to 'Delete', event_path(event), data: {confirm: 'Are you sure?'}, method: :delete, class: "btn btn-danger" %></td>
+          </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>

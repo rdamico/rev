@@ -1,0 +1,40 @@
+<%= form_with(url: url_for, method: :get) do |f| %>
+  <h5>Search</h5>
+  <div class="row mb-2">
+    <div class="col-2">
+      <%= f.label :customer, 'Customer' %>
+    </div>
+    <div class="col">
+      <%= f.select(:customer, Customer.order(:first_name).map { |c| [c.name, c.id] }, { selected: filter_params[:customer], include_blank: 'Any' }, { class: 'form-select form-select-sm', multiple: true }) %>
+    </div>
+  </div>
+  <div class="row mb-2">
+    <div class="col-2">
+      <%= f.label :event_type, 'Event Theme' %>
+    </div>
+    <div class="col">
+      <%= f.select(:event_type, EventType.order(:name).pluck(:name, :id), { selected: filter_params[:event_type], include_blank: 'Any' }, { class: 'form-select form-select-sm', multiple: true }) %>
+    </div>
+  </div>
+  <div class="row mb-2">
+    <%= f.label 'Start Date from', class: 'col-2' %>
+    <%= f.datetime_select(:start_from, {selected: filter_params[:start_from], prompt: true}, { class: "form-select form-select-sm col mr-1 ml-1 w-auto" }) %>
+  </div>
+  <div class="row mb-2">
+    <%= f.label 'Start Date to', class: 'col-2' %>
+    <%= f.datetime_select(:start_to, {selected: filter_params[:start_to], prompt: true}, { class: "form-select form-select-sm col mr-1 ml-1 w-auto" }) %>
+  </div>
+  <div class="row mb-2">
+    <%= f.label 'Finish Date from', class: 'col-2' %>
+    <%= f.datetime_select(:finish_from, {selected: filter_params[:finish_from], prompt: true}, { class: "form-select form-select-sm col mr-1 ml-1 w-auto" }) %>
+  </div>
+  <div class="row mb-2">
+    <%= f.label 'Finish Date to', class: 'col-2' %>
+    <%= f.datetime_select(:finish_to, {selected: filter_params[:finish_to], prompt: true}, { class: "form-select form-select-sm col mr-1 ml-1 w-auto" }) %>
+  </div>
+  <div class="row">
+    <div class="col flex justify-center mt-4">
+      <%= f.submit "Search", { class: 'btn btn-primary' } %>
+    </div>
+  </div>
+<% end %>
