@@ -1,7 +1,15 @@
 class Event < ApplicationRecord
+  extend FilterableModel
+
   belongs_to :customer
   belongs_to :event_type
   validates :start, :finish, presence: true
+
+  class << self
+    def filter_proxy
+      Filters::EventFilterProxy
+    end
+  end
 end
 
 # == Schema Information
