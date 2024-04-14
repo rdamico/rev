@@ -1,4 +1,53 @@
+
+
 # Wildgoose Technical Interview Exercise
+
+## Tech
+- Ruby 3.1.4
+- Rails 6.1.0
+- RSpec
+- Rubocop
+- Bootstrap
+
+## Setup
+First clone the repository. Once cloned, run `bundle` to install the Gems. Next set up the database:
+
+`rails db:setup`
+
+This will set up the development and test databases and set up ten events with allocated customers and event types.
+
+## Usage
+In the console run `rails s` to boot your local server. You can then visit `localhost:3000` to use the system. From here you may view and filter Events.
+
+## Testing
+The application was developed with TDD. To run the test suite (unit tests), use `rspec` in the console. The test files are located in the `spec` directory.
+
+## Coding Techniques
+The following coding techniques/patterns have been used in the development of this challenge:
+- Scalable filtering concerns on both model and controller level
+- Query object pattern
+- Test Driven Development
+- Modular, reusable code
+- SOLID design principles
+
+## Assumtions
+I made several assumtions during the development process, including:
+- Is this an administrative system?
+  - Yes, being able to see all events suggests this.
+- Should both start and finish dates be filterable by range?
+  - Yes, this will give more flexibility during filtering.
+- Will more models need filtering in future?
+  - Yes, if customer and event type views are created, they will likely need filtering.
+
+## Future Improvements
+1. More testing (Controller tests and Feature tests)
+2. Add secong scenario - Adding a freelancer to an event
+3. Live filtering without the need of a search button
+4. Error handling for partial date/time input - Fuzzy search
+5. Update to a more sophisticated UI/Design
+
+
+## Task
 
 We'd like you to improve the dashboard for "Ugly Duckling Events" - a small demo app we use as a pretext during interviews.  It is a dashboard to manage and view a list of events.
 
