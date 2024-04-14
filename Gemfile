@@ -21,6 +21,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'factory_bot_rails', '~> 6.4', '>= 6.4.3'
+  gem 'rspec-rails', '~> 6.1', '>= 6.1.2'
 end
 
 group :development do
@@ -28,6 +30,9 @@ group :development do
   gem 'web-console', '>= 4.0.3'
   gem 'listen', '~> 3.2'
   gem 'spring'
+  gem 'rubocop', '~> 1.63.1', require: false
+  gem 'rubocop-rails', '~> 2.24.1', require: false
+  gem 'rubocop-rspec', '~> 2.29.1', require: false
 end
 
 group :test do
